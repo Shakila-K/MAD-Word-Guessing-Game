@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:word_guessing_game/widgets/button.dart';
 
 class HintButton extends StatelessWidget {
   final String text;
@@ -25,9 +26,11 @@ class HintButton extends StatelessWidget {
           flex: 2,
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: ElevatedButton(
+            child: SmallButton(
               onPressed:  onPressed, 
-              child: Text('-$marks pts'), 
+              text: '-$marks pts', 
+              color: Colors.red[700],
+              textColor: Colors.white,
             ),
           ))
       ],

@@ -4,6 +4,7 @@ import 'package:word_guessing_game/screens/game_complete.dart';
 import 'package:word_guessing_game/screens/game_over.dart';
 import 'package:word_guessing_game/services/api.dart';
 import 'package:word_guessing_game/services/validators.dart';
+import 'package:word_guessing_game/widgets/button.dart';
 import 'package:word_guessing_game/widgets/hint_button.dart';
 import 'package:word_guessing_game/widgets/show_snackbar.dart';
 
@@ -119,8 +120,9 @@ class _GameScreenState extends State<GameScreen> {
             ),
           ),
           actions: <Widget>[
-            TextButton(
-              child: const Text('Check (-5 pts)'),
+            GeneralButton(
+              color: Colors.red[700],
+              textColor: Colors.white,
               onPressed: () {
                 if(formKey.currentState!.validate()){
                   String letter = letterController.text.toLowerCase();
@@ -134,6 +136,7 @@ class _GameScreenState extends State<GameScreen> {
                 }
                 
               },
+              child: const Text('Check (-5 pts)'),
             ),
           ],
         );
@@ -205,12 +208,14 @@ class _GameScreenState extends State<GameScreen> {
                   Text('Attempts : $attempts'),
                   Padding(
                     padding: const EdgeInsets.all(20.0),
-                    child: ElevatedButton(
-                      onPressed: !btnLoading? guessWord : null,
+                    child: GeneralButton(
+                      onPressed: (){!btnLoading? guessWord() : null;},
+                      color: Colors.green.shade600,
+                      textColor: Colors.white,
                       child: !btnLoading ? Text("Guess") : CircularProgressIndicator(),
                     ),
                   ),
-                  ElevatedButton(
+                  GeneralButton(
                     onPressed: (){
                       showModalBottomSheet(
                         context: context,
@@ -251,6 +256,8 @@ class _GameScreenState extends State<GameScreen> {
                         },
                       );
                     },
+                    color: Colors.lightBlue,
+                    textColor: Colors.white,
                     child: Text("Hint!"),
                   ),
                   Container(

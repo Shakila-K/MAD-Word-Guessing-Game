@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:word_guessing_game/screens/home.dart';
 import 'package:word_guessing_game/services/api.dart';
 import 'package:word_guessing_game/services/shared_prefs.dart';
 import 'package:word_guessing_game/services/validators.dart';
+import 'package:word_guessing_game/widgets/button.dart';
 
 class GetUserName extends StatefulWidget {
   const GetUserName({super.key});
@@ -26,7 +28,7 @@ class _GetUserNameState extends State<GetUserName> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Please enter your name"),
+                Text("Please enter your name", style: GoogleFonts.roboto(fontSize: 18),),
                 Padding(
                   padding: const EdgeInsets.all(40),
                   child: TextFormField(
@@ -35,7 +37,7 @@ class _GetUserNameState extends State<GetUserName> {
                     validator: (value) => Validators().validateString(value),
                   ),
                 ),
-                ElevatedButton(
+                GeneralButton(
                   onPressed: ()async{
                     if(_formKey.currentState!.validate()){
                       SharedPrefs().setStringValue('name', nameController.text);
@@ -45,6 +47,8 @@ class _GetUserNameState extends State<GetUserName> {
                       }
                     }
                   }, 
+                  color: Colors.blue,
+                  textColor: Colors.white,
                   child: Text('Confirm')
                 ),
               ],
