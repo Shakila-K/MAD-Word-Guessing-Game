@@ -1,16 +1,39 @@
-# word_guessing_game
+# Word Guessing Game
 
-A new Flutter project.
+A fun and interactive word guessing game built with Flutter.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Random word generation using the API Ninjas API.
+- Score tracking and deduction for incorrect guesses.
+- Hints system with penalties.
+- Timer to track game duration.
+- Game completion and game over screens.
 
-A few resources to get you started if this is your first Flutter project:
+## Installation
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+1. **Install dependencies:**
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+   ```sh
+   flutter pub get
+   ```
+
+2. **Set up API Key:**
+   Create a `.env` file in the root of the project and add the following:
+
+   ```env
+   # API Ninja API KEY
+   X-Api-Key = <your api key>
+   ```
+
+3. **Run the app:**
+   ```sh
+   flutter run
+   ```
+
+## How to Play
+
+- Enter your guess in the input field.
+- Click "Guess" to check your answer.
+- Use hints if needed, but they reduce your score.
+- The game ends when you guess correctly or run out of attempts.
